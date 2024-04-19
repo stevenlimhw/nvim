@@ -3,6 +3,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.wo.relativenumber = true
 vim.o.splitright = true
 vim.o.splitbelow = true
+--vim.opt.clipboard = 'unnamedplus'
+vim.api.nvim_set_option("clipboard","unnamed")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -22,3 +24,4 @@ require("core.options")
 require("core.keymaps")
 require("core.plugins")
 require("core.plugin_config")
+
