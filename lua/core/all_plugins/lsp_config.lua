@@ -35,6 +35,10 @@ require("lspconfig").tailwindcss.setup({})
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
+--    local map = function(keys, func, desc)
+--      vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
+--    end
+
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
@@ -42,7 +46,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    --map("gd", function()
+    --  require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" })
+    --end)
+    
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
