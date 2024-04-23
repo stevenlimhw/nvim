@@ -1,11 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.wo.relativenumber = true
-vim.o.splitright = true
-vim.o.splitbelow = true
---vim.opt.clipboard = 'unnamedplus'
-vim.api.nvim_set_option("clipboard","unnamed")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -19,9 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-require("core.options")
-require("core.keymaps")
-require("core.plugins")
-require("core.all_plugins")
-
+-- paths are relative to lua folder
+require("config")
+require("plugins")

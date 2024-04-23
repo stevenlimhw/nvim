@@ -1,6 +1,15 @@
 require("lazy").setup({
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
-  { "catppuccin/nvim", name = "catppuccin", priority = 999 },
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    opts = ...
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 999
+  },
   "tpope/vim-commentary",
   "mattn/emmet-vim",
   "nvim-tree/nvim-tree.lua",
@@ -40,11 +49,11 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim", tag = "0.1.4",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
-  {
-    'MeanderingProgrammer/markdown.nvim',
-    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
-    dependencies = { 'nvim-treesitter/nvim-treesitter' }
-  },
+--  {
+--    'MeanderingProgrammer/markdown.nvim',
+--    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
+--    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+--  },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
