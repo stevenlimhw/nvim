@@ -1,15 +1,4 @@
 require("lazy").setup({
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = true,
-    opts = ...
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 999
-  },
   "tpope/vim-commentary",
   "mattn/emmet-vim",
   "nvim-tree/nvim-tree.lua",
@@ -35,8 +24,20 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
-  -- "windwp/nvim-autopairs",
   "jose-elias-alvarez/null-ls.nvim",
+  -- set priority to 1000 to use gruvbox
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    opts = ...
+  },
+  -- set priority to 1000 to use catpuccin 
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 999
+  },
   {
     "vinnymeller/swagger-preview.nvim",
     run = "npm install -g swagger-ui-watcher",
@@ -49,14 +50,16 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim", tag = "0.1.4",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
---  {
---    'MeanderingProgrammer/markdown.nvim',
---    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
---    dependencies = { 'nvim-treesitter/nvim-treesitter' },
---  },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
   }
 })
