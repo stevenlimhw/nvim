@@ -25,26 +25,31 @@ require("lazy").setup({
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
   "jose-elias-alvarez/null-ls.nvim",
-  -- set priority to 1000 to use gruvbox
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = true,
-    opts = ...
-  },
   -- set priority to 1000 to use catpuccin 
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 999
+    priority = 1000
+  },
+  -- set priority to 1000 to use gruvbox
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 999,
+    config = true,
+    opts = ...
   },
   {
     "vinnymeller/swagger-preview.nvim",
     run = "npm install -g swagger-ui-watcher",
   },
   {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
+  "iamcco/markdown-preview.nvim",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = "cd app && yarn install",
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+  end,
+  ft = { "markdown" },
   },
   {
     "nvim-telescope/telescope.nvim", tag = "0.1.4",

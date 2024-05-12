@@ -1,8 +1,8 @@
 require("catppuccin").setup({
-  flavour = "macchiato",
+  flavour = "mocha",
   transparent_background = false,
   background = { -- :h background
-        dark = "macchiato",
+        dark = "mocha",
   },
   styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
     comments = { "italic" }, -- Change the style of comments
@@ -87,7 +87,7 @@ vim.o.termguicolors = true
 vim.o.background = "dark"
 
 -- Uncomment this line to enable catpuccin colorscheme
--- vim.cmd[[colorscheme catppuccin]]
+vim.cmd[[colorscheme catppuccin]]
 
 -- Uncomment this line to enable gruvbox colorschem
-vim.cmd([[colorscheme gruvbox]])
+--vim.cmd([[colorscheme gruvbox]])
