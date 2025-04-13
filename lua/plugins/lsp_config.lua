@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver" }
+  ensure_installed = { "lua_ls", "ts_ls" }
 })
 
 local lspconfig = require('lspconfig')
@@ -28,7 +28,7 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
-require("lspconfig").tsserver.setup({})
+require("lspconfig").ts_ls.setup({})
 require("lspconfig").gopls.setup({})
 require("lspconfig").tailwindcss.setup({})
 
