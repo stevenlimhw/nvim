@@ -22,3 +22,18 @@
 ```
     require("plugins.telescope")
 ```
+## How to change colorscheme
+1. Add in the github repo into lua/config/plugins.lua
+```
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 998,
+    config = true,
+    opts = ...
+  },
+```
+1. Add in the configuration (refer to the github repo) and add it to lua/plugins/colorscheme.lua
+1. Don't forget to add into colorscheme.lua:
+```
+vim.cmd([[colorscheme gruvbox]])
+```

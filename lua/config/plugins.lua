@@ -26,28 +26,30 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   "jose-elias-alvarez/null-ls.nvim",
   {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_agenda_files = '~/sync/org/**/*',
+        org_default_notes_file = '~/sync/org/main.org',
+        org_capture_templates = {
+          j = {
+            description = 'Journal',
+            template = '\n* %<%Y-%m-%d> %<%A> %U\n\n%?',
+            target = '~/sync/org/journal/%<%Y-%m>.org'
+          },
+        },
+      })
+    end,
+  },
+  {
     "lervag/vimtex",
     -- tag = "v2.15", -- uncomment to pin to a specific release
     init = function()
-      -- VimTeX configuration goes here, e.g.
-      -- This enables Vim's and Neovim's syntax-related features.
-      -- Without this, some VimTeX features will not work
       vim.cmd('syntax enable')
-      -- VimTeX Viewer options
-      vim.g.vimtex_view_method = 'skim'
-      vim.g.vimtex_view_skim_sync = 1
-      -- Or with a generic interface:
-      vim.g.vimtex_view_general_viewer = 'skim'  -- Replace 'okular' with your preferred viewer
-      vim.g.vimtex_view_general_options = '--unique file:@pdf#src:@line@tex'
-      -- VimTeX Compiler backend
-      vim.g.vimtex_compiler_method = 'latexmk'  -- Use 'latexmk' or another compiler if needed
-      -- Set up VimTeX compile command mapping
       vim.api.nvim_set_keymap('n', '\\ll', ':VimtexCompile<CR>', { noremap = true, silent = true })
-      -- View the PDF with \lv
       vim.api.nvim_set_keymap('n', '\\lv', ':VimtexView<CR>', { noremap = true, silent = true })
-      -- Local leader key for VimTeX mappings (default is ',')
-      vim.g.maplocalleader = ","
-      vim.g.vimtex_rooter_enabled = 1
     end
   },
   {
